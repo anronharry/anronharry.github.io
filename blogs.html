@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blogs - My Space</title>
+    <!-- 新增的站点图标 -->
+    <link rel="icon" type="image/png" href="https://pic1.imgdb.cn/item/67d3f5de88c538a9b5bd917b.png">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        .blogs-container {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .blogs-title {
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 2rem;
+            color: #000;
+        }
+        
+        .dark-mode .blogs-title {
+            color: #fff;
+        }
+        
+        .blog-card {
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .dark-mode .blog-card {
+            background-color: rgba(30, 41, 59, 0.8);
+        }
+        
+        .blog-header {
+            display: flex;
+            align-items: center;
+            padding: 1.5rem;
+        }
+        
+        .blog-image {
+            width: 80px;
+            height: 80px;
+            border-radius: 0.5rem;
+            object-fit: cover;
+            margin-right: 1.5rem;
+        }
+        
+        .blog-info {
+            flex-grow: 1;
+        }
+        
+        .blog-title {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .blog-meta {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: 0.875rem;
+            opacity: 0.8;
+        }
+        
+        .blog-date {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+        
+        .blog-category {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+        
+        .blog-content {
+            padding: 0 1.5rem 1.5rem;
+            line-height: 1.7;
+        }
+        
+        .blog-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            padding: 0 1.5rem 1.5rem;
+        }
+        
+        .blog-tag {
+            background-color: #000;
+            color: #fff;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+        }
+        
+        .dark-mode .blog-tag {
+            background-color: #fff;
+            color: #000;
+        }
+        
+        .read-more {
+            align-self: flex-start;
+            background-color: #000;
+            color: #fff;
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            text-decoration: none;
+            font-size: 0.875rem;
+            margin: 0 1.5rem 1.5rem;
+            transition: background-color 0.3s;
+        }
+        
+        .read-more:hover {
+            background-color: #333;
+        }
+        
+        .dark-mode .read-more {
+            background-color: #fff;
+            color: #000;
+        }
+        
+        .dark-mode .read-more:hover {
+            background-color: #ddd;
+        }
+        
+        @media (max-width: 768px) {
+            .blog-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .blog-image {
+                width: 100%;
+                height: 200px;
+                margin-right: 0;
+                margin-bottom: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="app light-mode">
+        <!-- Navigation -->
+        <nav class="nav">
+            <div class="nav-container">
+                <div class="nav-content">
+                    <button class="nav-button" onclick="window.location.href='home.html'">Home</button>
+                    <button class="nav-button" onclick="window.location.href='about.html'">About</button>
+                    <button class="nav-button" onclick="window.location.href='projects.html'">Projects</button>
+                    <button class="nav-button active">Blogs</button>
+                    <button class="nav-button dark-mode-toggle" id="darkModeToggle">
+                        <i data-lucide="moon"></i>
+                    </button>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="hero">
+            <div class="blogs-container">
+                <h1 class="blogs-title">My Blog</h1>
+                
+                <!-- Blog Post 1 -->
+                <article class="blog-card">
+                    <header class="blog-header">
+                        <img src="https://picsum.photos/200/200?random=1" alt="Blog post image" class="blog-image">
+                        <div class="blog-info">
+                            <h2 class="blog-title">The Future of Web Development in 2025</h2>
+                            <div class="blog-meta">
+                                <div class="blog-date">
+                                    <i data-lucide="calendar" size="16"></i>
+                                    <span>February 15, 2025</span>
+                                </div>
+                                <div class="blog-category">
+                                    <i data-lucide="folder" size="16"></i>
+                                    <span>Web Development</span>
+                                </div>
+                            </div>
+                        </div>
+                    </header>
+                    <div class="blog-content">
+                        <p>The web development landscape is constantly evolving, with new technologies and frameworks emerging at a rapid pace. In this article, I explore the trends that are shaping the future of web development in 2025 and beyond.</p>
+                        <p>From AI-powered development tools to the rise of Web Assembly, the way we build websites and applications is undergoing a significant transformation...</p>
+                    </div>
+                    <div class="blog-tags">
+                        <span class="blog-tag">Web Development</span>
+                        <span class="blog-tag">Future Tech</span>
+                        <span class="blog-tag">AI</span>
+                        <span class="blog-tag">WebAssembly</span>
+                    </div>
+                    <a href="blog/post-1.html" class="read-more">Read More</a>
+                </article>
+                
+                <!-- Blog Post 2 -->
+                <article class="blog-card">
+                    <header class="blog-header">
+                        <img src="https://picsum.photos/200/200?random=2" alt="Blog post image" class="blog-image">
+                        <div class="blog-info">
+                            <h2 class="blog-title">Mastering CSS Grid for Complex Layouts</h2>
+                            <div class="blog-meta">
+                                <div class="blog-date">
+                                    <i data-lucide="calendar" size="16"></i>
+                                    <span>January 28, 2025</span>
+                                </div>
+                                <div class="blog-category">
+                                    <i data-lucide="folder" size="16"></i>
+                                    <span>CSS</span>
+                                </div>
+                            </div>
+                        </div>
+                    </header>
+                    <div class="blog-content">
+                        <p>CSS Grid has revolutionized the way we create layouts on the web. In this comprehensive guide, I break down the fundamentals of CSS Grid and share advanced techniques for building complex, responsive layouts.</p>
+                        <p>Whether you're new to CSS Grid or looking to level up your skills, this article provides practical examples and best practices...</p>
+                    </div>
+                    <div class="blog-tags">
+                        <span class="blog-tag">CSS</span>
+                        <span class="blog-tag">Layout</span>
+                        <span class="blog-tag">Responsive Design</span>
+                    </div>
+                    <a href="blog/post-2.html" class="read-more">Read More</a>
+                </article>
+                
+                <!-- Blog Post 3 -->
+                <article class="blog-card">
+                    <header class="blog-header">
+                        <img src="https://picsum.photos/200/200?random=3" alt="Blog post image" class="blog-image">
+                        <div class="blog-info">
+                            <h2 class="blog-title">Optimizing Website Performance: A Case Study</h2>
+                            <div class="blog-meta">
+                                <div class="blog-date">
+                                    <i data-lucide="calendar" size="16"></i>
+                                    <span>January 10, 2025</span>
+                                </div>
+                                <div class="blog-category">
+                                    <i data-lucide="folder" size="16"></i>
+                                    <span>Performance</span>
+                                </div>
+                            </div>
+                        </div>
+                    </header>
+                    <div class="blog-content">
+                        <p>Website performance directly impacts user experience and conversion rates. In this case study, I walk through the process of optimizing a client's e-commerce site, reducing load times by 70% and increasing conversions by 25%.</p>
+                        <p>Learn the strategies and tools I used to identify performance bottlenecks and implement effective solutions...</p>
+                    </div>
+                    <div class="blog-tags">
+                        <span class="blog-tag">Performance</span>
+                        <span class="blog-tag">Optimization</span>
+                        <span class="blog-tag">Case Study</span>
+                        <span class="blog-tag">E-commerce</span>
+                    </div>
+                    <a href="blog/post-3.html" class="read-more">Read More</a>
+                </article>
+                
+                <!-- Blog Post 4 -->
+                <article class="blog-card">
+                    <header class="blog-header">
+                        <img src="https://picsum.photos/200/200?random=4" alt="Blog post image" class="blog-image">
+                        <div class="blog-info">
+                            <h2 class="blog-title">Creating Accessible Web Experiences</h2>
+                            <div class="blog-meta">
+                                <div class="blog-date">
+                                    <i data-lucide="calendar" size="16"></i>
+                                    <span>December 15, 2024</span>
+                                </div>
+                                <div class="blog-category">
+                                    <i data-lucide="folder" size="16"></i>
+                                    <span>Accessibility</span>
+                                </div>
+                            </div>
+                        </div>
+                    </header>
+                    <div class="blog-content">
+                        <p>Web accessibility is not just a legal requirement but a moral obligation. In this article, I discuss the importance of creating inclusive web experiences and share practical tips for making your websites accessible to everyone.</p>
+                        <p>From semantic HTML to ARIA attributes, learn how to build websites that work for all users, regardless of their abilities...</p>
+                    </div>
+                    <div class="blog-tags">
+                        <span class="blog-tag">Accessibility</span>
+                        <span class="blog-tag">Inclusive Design</span>
+                        <span class="blog-tag">ARIA</span>
+                        <span class="blog-tag">UX</span>
+                    </div>
+                    <a href="blog/post-4.html" class="read-more">Read More</a>
+                </article>
+            </div>
+
+            <!-- Background Image -->
+            <div class="background-image">
+                <img src="#" >
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Dark mode toggle functionality
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        const app = document.querySelector('.app');
+
+        darkModeToggle.addEventListener('click', () => {
+            app.classList.toggle('dark-mode');
+        });
+    </script>
+</body>
+</html>

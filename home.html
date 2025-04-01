@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Ronharry Blog">
+    <title>Ronharry Blog</title>
+    <!-- Link to external CSS file -->
+    <link rel="stylesheet" href="home.css">
+    <!-- Use a specific version of Lucide for better stability -->
+    <script src="https://unpkg.com/lucide@0.276.0/dist/umd/lucide.min.js"></script>
+    <!-- Preload the background image -->
+    <link rel="preload" href="https://picsum.photos/1000/1000?grayscale" as="image">
+    <!-- Add favicon -->
+    <link rel="icon" href="https://pic1.imgdb.cn/item/67d3f5de88c538a9b5bd917b.png" type="image/png">
+    <style>
+        /* Mobile navigation centering */
+        @media (max-width: 768px) {
+            .nav-content {
+                justify-content: center;
+            }
+            
+            .nav-button {
+                margin-left: 1rem;
+                margin-right: 1rem;
+            }
+            
+            .nav-button:first-child {
+                margin-left: 0;
+            }
+            
+            .nav-button:last-child {
+                margin-right: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="app light-mode">
+        <!-- Navigation -->
+        <nav class="nav">
+            <div class="nav-container">
+                <div class="nav-content">
+                    <a href="home.html" class="nav-button" id="homeLink">Home</a>
+                    <a href="about.html" class="nav-button">About</a>
+                    <a href="projects.html" class="nav-button">Projects</a>
+                    <a href="blogs.html" class="nav-button">Blogs</a>
+                    <button class="nav-button dark-mode-toggle" id="darkModeToggle" aria-label="Toggle dark mode">
+                        <i data-lucide="moon"></i>
+                    </button>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Reading Progress Indicator -->
+        <div class="reading-progress" id="readingProgress">0%</div>
+
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h1 class="hero-title">WELCOME</h1>
+                <h2 class="hero-title">TO MY SPACE</h2>
+                <h2 class="hero-title">I'M Ronharry</h2>
+            </div>
+
+            <!-- Scroll Down Indicator -->
+            <div class="scroll-indicator" id="scrollIndicator">
+                <span>Scroll Down</span>
+                <i data-lucide="chevron-down"></i>
+            </div>
+
+            <!-- Background Image -->
+            <div class="background-image">
+                <img src="https://pic1.imgdb.cn/item/67cd3420066befcec6e1ca4e.jpg" alt="Background image">
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="section">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="https://pic1.imgdb.cn/item/67c1d99cd0e0a243d4083ca3.jpg!600x600" alt="Profile photo">
+                </div>
+                <div class="about-text">
+                    <h3>Web Developer & Creative Thinker</h3>
+                    <p>Hello! I'm Ronharry, a passionate web developer with over 5 years of experience creating engaging digital experiences. I specialize in building modern, responsive websites and applications that combine aesthetics with functionality.</p>
+                    <p>My journey in web development began when I was in college, and I've been hooked ever since. I love solving complex problems and turning ideas into reality through code.</p>
+                    <div class="skills">
+                        <h4>My Skills</h4>
+                        <div class="skill-tags">
+                            <span class="skill-tag">HTML5</span>
+                            <span class="skill-tag">CSS3</span>
+                            <span class="skill-tag">JavaScript</span>
+                            <span class="skill-tag">React</span>
+                            <span class="skill-tag">Node.js</span>
+                            <span class="skill-tag">UI/UX Design</span>
+                            <span class="skill-tag">Responsive Design</span>
+                            <span class="skill-tag">Git</span>
+                            <span class="skill-tag">MongoDB</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="section">
+            <h2 class="section-title">My Projects</h2>
+            <div class="projects-grid">
+                <!-- Project 1 -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://picsum.photos/600/400?random=1" alt="Project 1">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">E-Commerce Platform</h3>
+                        <p class="project-description">A full-featured online store with product management, cart functionality, and secure payment processing.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">React</span>
+                            <span class="project-tag">Node.js</span>
+                            <span class="project-tag">MongoDB</span>
+                            <span class="project-tag">Stripe</span>
+                        </div>
+                        <a href="文章地址/E-commerce Redesign.html" class="project-link">View Project <i data-lucide="arrow-right" style="width: 16px; height: 16px; display: inline;"></i></a>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://picsum.photos/600/400?random=2" alt="Project 2">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Portfolio Template</h3>
+                        <p class="project-description">Artificial Intelligence has transformed how developers approach their work. By 2025, AI assistants have become an essential part of the development workflow. These tools can now</p>
+                        <div class="project-tags">
+                            <span class="project-tag">HTML5</span>
+                            <span class="project-tag">CSS3</span>
+                            <span class="project-tag">JavaScript</span>
+                            <span class="project-tag">GSAP</span>
+                        </div>
+                        <a href="文章地址/Portfolio Template.html" class="project-link">View Project <i data-lucide="arrow-right" style="width: 16px; height: 16px; display: inline;"></i></a>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://picsum.photos/600/400?random=3" alt="Project 3">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Weather App</h3>
+                        <p class="project-description">The web development landscape is constantly evolving, with new technologies and frameworks emerging at a rapid pace. In this article, I explore the trends that are shaping the future of web development in 2025 and beyond.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">React</span>
+                            <span class="project-tag">OpenWeather API</span>
+                            <span class="project-tag">Chart.js</span>
+                        </div>
+                        <a href="文章地址/Weather App.html" class="project-link">View Project <i data-lucide="arrow-right" style="width: 16px; height: 16px; display: inline;"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Blog Section -->
+        <section id="blogs" class="section">
+            <h2 class="section-title">Latest Articles</h2>
+            <div class="blog-grid">
+                <!-- Blog 1 -->
+                <div class="blog-card">
+                    <div class="blog-image">
+                        <img src="https://picsum.photos/600/400?random=4" alt="Blog post 1">
+                    </div>
+                    <div class="blog-content">
+                        <h3 class="blog-title">The Future of Web Development in 2025</h3>
+                        <p class="blog-date">March 1, 2025</p>
+                        <p class="blog-excerpt">Exploring the upcoming trends in web development including AI integration, WebAssembly advancements, and serverless architecture.</p>
+                        <a href="blog/post-2.html" class="blog-link">Read More <i data-lucide="arrow-right" style="width: 16px; height: 16px; display: inline;"></i></a>
+                    </div>
+                </div>
+
+                <!-- Blog 2 -->
+                <div class="blog-card">
+                    <div class="blog-image">
+                        <img src="https://picsum.photos/600/400?random=5" alt="Blog post 2">
+                    </div>
+                    <div class="blog-content">
+                        <h3 class="blog-title">Mastering CSS Grid for Complex Layouts</h3>
+                        <p class="blog-date">February 15, 2025</p>
+                        <p class="blog-excerpt">A comprehensive guide to implementing dark mode in your web applications while maintaining accessibility and user experience.</p>
+                        <a href="blog/post-1.html" class="blog-link">Read More <i data-lucide="arrow-right" style="width: 16px; height: 16px; display: inline;"></i></a>
+                    </div>
+                </div>
+
+                <!-- Blog 3 -->
+                <div class="blog-card">
+                    <div class="blog-image">
+                        <img src="https://picsum.photos/600/400?random=6" alt="Blog post 3">
+                    </div>
+                    <div class="blog-content">
+                        <h3 class="blog-title">Optimizing Website Performance</h3>
+                        <p class="blog-date">January 28, 2025</p>
+                        <p class="blog-excerpt">Learn how to improve your website's loading speed, responsiveness, and overall performance through practical techniques.</p>
+                        <a href="blog/post-3.html" class="blog-link">Read More <i data-lucide="arrow-right" style="width: 16px; height: 16px; display: inline;"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="social-links">
+                    <a href="#" class="social-link" aria-label="GitHub"><i data-lucide="github"></i></a>
+                    <a href="#" class="social-link" aria-label="LinkedIn"><i data-lucide="linkedin"></i></a>
+                    <a href="#" class="social-link" aria-label="Twitter"><i data-lucide="twitter"></i></a>
+                    <a href="#" class="social-link" aria-label="Instagram"><i data-lucide="instagram"></i></a>
+                </div>
+                <p class="copyright">© 2025 Ronharry. All Rights Reserved.</p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Link to external JavaScript file -->
+    <script src="home.js"></script>
+</body>
+</html>
