@@ -1,1 +1,157 @@
 # anronharry.github.io
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - My Space</title>
+    <!-- 新增的站点图标 -->
+    <link rel="icon" type="image/png" href="https://pic1.imgdb.cn/item/67d3f5de88c538a9b5bd917b.png">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        .about-section {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .dark-mode .about-section {
+            background-color: rgba(30, 41, 59, 0.8);
+        }
+        
+        .profile-container {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto 2rem;
+            position: relative;
+            overflow: hidden;
+            border-radius: 50%;
+            border: 4px solid #000;
+        }
+        
+        .dark-mode .profile-container {
+            border-color: #fff;
+        }
+        
+        .profile-photo {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .about-title {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        
+        .about-content {
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+        
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+        
+        .skill-pill {
+            background-color: #000;
+            color: #fff;
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+        }
+        
+        .dark-mode .skill-pill {
+            background-color: #fff;
+            color: #000;
+        }
+    </style>
+</head>
+<body>
+    <div class="app light-mode">
+        <!-- Navigation -->
+        <nav class="nav">
+            <div class="nav-container">
+                <div class="nav-content">
+                    <button class="nav-button" onclick="window.location.href='home.html'">Home</button>
+                    <button class="nav-button active">About</button>
+                    <button class="nav-button" onclick="window.location.href='projects.html'">Projects</button>
+                    <button class="nav-button" onclick="window.location.href='blogs.html'">Blogs</button>
+                    <button class="nav-button dark-mode-toggle" id="darkModeToggle">
+                        <i data-lucide="moon"></i>
+                    </button>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="hero">
+            <div class="about-section">
+                <div class="profile-container">
+                    <img src="https://pic1.imgdb.cn/item/67c1d99cd0e0a243d4083ca3.jpg" alt="Profile photo" class="profile-photo">
+                </div>
+                <h1 class="about-title">About Me</h1>
+                <div class="about-content">
+                    <p>Hello! I'm Ronharry, a passionate web developer and designer with a love for creating beautiful, functional websites. With over 5 years of experience in the field, I specialize in front-end development and UI/UX design.</p>
+                    
+                    <p>I believe that great design is not just about aesthetics but also about functionality and user experience. My approach combines clean, minimal design with intuitive interfaces that make websites a pleasure to use.</p>
+                    
+                    <p>When I'm not coding, you can find me exploring new hiking trails, experimenting with photography, or diving into a good book. I'm always looking to expand my knowledge and skills, whether that's learning a new programming language or trying out a new design technique.</p>
+                    
+                    <p>I'm currently available for freelance work and collaborations. If you have a project in mind or just want to connect, feel free to reach out!</p>
+                </div>
+                
+                <h2>Skills</h2>
+                <div class="skills-container">
+                    <span class="skill-pill">HTML5</span>
+                    <span class="skill-pill">CSS3</span>
+                    <span class="skill-pill">JavaScript</span>
+                    <span class="skill-pill">React</span>
+                    <span class="skill-pill">Vue.js</span>
+                    <span class="skill-pill">UI/UX Design</span>
+                    <span class="skill-pill">Responsive Design</span>
+                    <span class="skill-pill">Figma</span>
+                    <span class="skill-pill">Node.js</span>
+                </div>
+            </div>
+
+            <!-- Background Image -->
+            <div class="background-image">
+                <img src="#" >
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Dark mode toggle functionality
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        const app = document.querySelector('.app');
+
+        darkModeToggle.addEventListener('click', () => {
+            app.classList.toggle('dark-mode');
+        });
+        
+        // Ensure image loads properly
+        const profileImage = document.querySelector('.profile-photo');
+        profileImage.onerror = function() {
+            console.error('Error loading profile image');
+            this.src = 'https://via.placeholder.com/200'; // Fallback image
+        };
+    </script>
+</body>
+</html>
