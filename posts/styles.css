@@ -1,0 +1,531 @@
+/* 基本布局样式 */
+.post-container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
+    position: relative;
+    z-index: 1;
+}
+
+.post-header {
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.post-title {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #000;
+}
+
+.dark-mode .post-title {
+    color: #fff;
+}
+
+.post-meta {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+}
+
+.post-date, .post-category {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    opacity: 0.8;
+}
+
+.post-image {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 1rem;
+    margin-bottom: 2rem;
+}
+
+.post-content {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 2rem;
+    border-radius: 1rem;
+    line-height: 1.8;
+    margin-bottom: 2rem;
+}
+
+.dark-mode .post-content {
+    background-color: rgba(30, 41, 59, 0.8);
+}
+
+.post-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+}
+
+.post-tag {
+    background-color: #000;
+    color: #fff;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+}
+
+.dark-mode .post-tag {
+    background-color: #fff;
+    color: #000;
+}
+
+.back-to-blogs {
+    display: inline-block;
+    background-color: #000;
+    color: #fff;
+    padding: 0.75rem 1.5rem;
+    border-radius: 9999px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: background-color 0.3s;
+}
+
+.back-to-blogs:hover {
+    background-color: #333;
+}
+
+.dark-mode .back-to-blogs {
+    background-color: #fff;
+    color: #000;
+}
+
+.dark-mode .back-to-blogs:hover {
+    background-color: #ddd;
+}
+
+pre {
+    background-color: #f5f5f5;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    overflow-x: auto;
+}
+
+.dark-mode pre {
+    background-color: #1a1a1a;
+}
+
+code {
+    font-family: 'Courier New', monospace;
+}
+
+blockquote {
+    border-left: 4px solid #000;
+    padding-left: 1rem;
+    font-style: italic;
+    margin: 1.5rem 0;
+}
+
+.dark-mode blockquote {
+    border-left-color: #fff;
+}
+
+/* 导航样式优化 */
+.nav {
+    padding: 1rem 2rem;
+    background-color: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+}
+
+.dark-mode .nav {
+    background-color: rgba(24, 33, 47, 0.9);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.nav-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+}
+
+.nav-button {
+    padding: 0.5rem 1rem;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    font-size: 1rem;
+    color: #333;
+    font-weight: 500;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.nav-button:hover {
+    color: #000;
+}
+
+.nav-button.active {
+    color: #000;
+}
+
+.nav-button.active::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 20px;
+    height: 3px;
+    background-color: #000;
+    border-radius: 3px;
+}
+
+.dark-mode .nav-button {
+    color: #ccc;
+}
+
+.dark-mode .nav-button:hover {
+    color: #fff;
+}
+
+.dark-mode .nav-button.active {
+    color: #fff;
+}
+
+.dark-mode .nav-button.active::after {
+    background-color: #fff;
+}
+
+.app {
+    min-height: 100vh;
+    background-color: #f8f9fa;
+    transition: background-color 0.3s ease;
+}
+
+.dark-mode {
+    background-color: #121826;
+    color: #fff;
+}
+
+/* 语言选择器优化 */
+.nav-controls {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.language-selector {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.selected-language {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 8px 12px;
+    border-radius: 12px;
+    background-color: rgba(0, 0, 0, 0.05);
+    color: #333;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+}
+
+.selected-language:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.dark-mode .selected-language {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #fff;
+}
+
+.dark-mode .selected-language:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+.language-dropdown {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    margin-top: 8px;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    padding: 8px;
+    min-width: 150px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+.language-dropdown.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.dark-mode .language-dropdown {
+    background-color: #2a3347;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.language-option {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    color: #333;
+}
+
+.language-option:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.language-option.active {
+    background-color: rgba(0, 0, 0, 0.1);
+    font-weight: 500;
+}
+
+.dark-mode .language-option {
+    color: #fff;
+}
+
+.dark-mode .language-option:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode .language-option.active {
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+.language-flag {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* 暗黑模式切换按钮优化 */
+.theme-toggle {
+    position: relative;
+    width: 52px;
+    height: 28px;
+    border-radius: 14px;
+    background-color: #e9ecef;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    padding: 0 3px;
+}
+
+.dark-mode .theme-toggle {
+    background-color: #4a5568;
+}
+
+.toggle-thumb {
+    position: absolute;
+    left: 3px;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.dark-mode .toggle-thumb {
+    left: 27px;
+    background-color: #1a202c;
+}
+
+.toggle-icon {
+    color: #f59e0b;
+    font-size: 12px;
+    transition: all 0.3s ease;
+}
+
+.dark-mode .toggle-icon {
+    color: #f6e05e;
+}
+
+.sun-icon, .moon-icon {
+    position: absolute;
+    top: 6px;
+    transition: all 0.3s ease;
+}
+
+.sun-icon {
+    right: 6px;
+    opacity: 1;
+}
+
+.moon-icon {
+    left: 6px;
+    opacity: 0;
+}
+
+.dark-mode .sun-icon {
+    opacity: 0;
+}
+
+.dark-mode .moon-icon {
+    opacity: 1;
+}
+
+/* 翻译加载提示样式优化 */
+.translate-overlay {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 12px 20px;
+    background: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    border-radius: 8px;
+    display: none;
+    z-index: 1000;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    font-size: 14px;
+    font-weight: 500;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.dark-mode .translate-overlay {
+    background: rgba(255, 255, 255, 0.8);
+    color: #000;
+}
+
+/* 旋转动画 */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* 响应式设计优化 */
+@media (max-width: 768px) {
+    .nav {
+        padding: 1rem;
+    }
+    
+    .nav-content {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .nav-links {
+        width: 100%;
+        justify-content: space-between;
+    }
+    
+    .nav-controls {
+        width: 100%;
+        justify-content: space-between;
+    }
+    
+    .post-container {
+        padding: 1rem;
+    }
+    
+    .post-title {
+        font-size: 2rem;
+    }
+}
+
+/* Reading Progress Indicator - Minimalist Black & White */
+.reading-progress {
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 99;
+    font-weight: 600;
+    font-size: 14px;
+    color: #000;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    opacity: 0;
+}
+
+.reading-progress:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+.progress-circle {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform: rotate(-90deg);
+}
+
+.progress-circle-bg {
+    fill: none;
+    stroke: #e0e0e0;
+    stroke-width: 2px;
+}
+
+.progress-circle-fg {
+    fill: none;
+    stroke: #000;
+    stroke-width: 2px;
+    stroke-dasharray: 0 100;
+    transition: stroke-dasharray 0.3s ease;
+}
+
+.dark-mode .reading-progress {
+    background-color: rgba(30, 30, 30, 0.9);
+    color: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+.dark-mode .progress-circle-bg {
+    stroke: #333;
+}
+
+.dark-mode .progress-circle-fg {
+    stroke: #fff;
+}
+
+.percent-text {
+    position: relative;
+    z-index: 2;
+}
