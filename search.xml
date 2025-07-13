@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>极简 HTML 工具集</title>
+      <link href="/posts/2025713.html"/>
+      <url>/posts/2025713.html</url>
+      
+        <content type="html"><![CDATA[<h1 id="极简-HTML-工具集"><a href="#极简-HTML-工具集" class="headerlink" title="极简 HTML 工具集"></a>极简 HTML 工具集</h1><p>此工具基于简单 HTML 文件构建，并部署于 Cloudflare Pages。</p><h3 id="Markdown-和-HTML-在线互转"><a href="#Markdown-和-HTML-在线互转" class="headerlink" title="Markdown 和 HTML 在线互转"></a><a class="link"   href="https://a8f1d791.down-9yp.pages.dev/" >Markdown 和 HTML 在线互转<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></h3><p><strong>应用场景：</strong> 为静态博客（如 Hexo）上传文章时，常需使用 Markdown 文件。此工具便于快速编辑。</p><p><img                       lazyload                     src="/images/loading.svg"                     data-src="https://pic1.imgdb.cn/item/6873507558cb8da5c8a6d384.png"                                     ></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 工具集 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 工具 </tag>
+            
+            <tag> HTML </tag>
+            
+            <tag> Markdown </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>影视</title>
       <link href="/posts/20250616.html"/>
       <url>/posts/20250616.html</url>

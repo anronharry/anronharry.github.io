@@ -6,7 +6,7 @@
   <link href="http://anronharry.github.io/atom.xml" rel="self"/>
   
   <link href="http://anronharry.github.io/"/>
-  <updated>2025-06-18T09:15:33.271Z</updated>
+  <updated>2025-07-13T06:34:44.204Z</updated>
   <id>http://anronharry.github.io/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>极简 HTML 工具集</title>
+    <link href="http://anronharry.github.io/posts/2025713.html"/>
+    <id>http://anronharry.github.io/posts/2025713.html</id>
+    <published>2025-07-13T06:00:00.000Z</published>
+    <updated>2025-07-13T06:34:44.204Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="极简-HTML-工具集"><a href="#极简-HTML-工具集" class="headerlink" title="极简 HTML 工具集"></a>极简 HTML 工具集</h1><p>此工具基于简单 HTML 文件构建，并部署于 Cloudflare Pages。</p><h3 id="Markdown-和-HTML-在线互转"><a href="#Markdown-和-HTML-在线互转" class="headerlink" title="Markdown 和 HTML 在线互转"></a><a class="link"   href="https://a8f1d791.down-9yp.pages.dev/" >Markdown 和 HTML 在线互转<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></h3><p><strong>应用场景：</strong> 为静态博客（如 Hexo）上传文章时，常需使用 Markdown 文件。此工具便于快速编辑。</p><p><img                       lazyload                     src="/images/loading.svg"                     data-src="https://pic1.imgdb.cn/item/6873507558cb8da5c8a6d384.png"                                     ></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;极简-HTML-工具集&quot;&gt;&lt;a href=&quot;#极简-HTML-工具集&quot; class=&quot;headerlink&quot; title=&quot;极简 HTML 工具集&quot;&gt;&lt;/a&gt;极简 HTML 工具集&lt;/h1&gt;&lt;p&gt;此工具基于简单 HTML 文件构建，并部署于 Cloudflare </summary>
+      
+    
+    
+    
+    <category term="工具集" scheme="http://anronharry.github.io/categories/%E5%B7%A5%E5%85%B7%E9%9B%86/"/>
+    
+    
+    <category term="工具" scheme="http://anronharry.github.io/tags/%E5%B7%A5%E5%85%B7/"/>
+    
+    <category term="HTML" scheme="http://anronharry.github.io/tags/HTML/"/>
+    
+    <category term="Markdown" scheme="http://anronharry.github.io/tags/Markdown/"/>
+    
+  </entry>
   
   <entry>
     <title>影视</title>
