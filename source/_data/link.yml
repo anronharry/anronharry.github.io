@@ -1,0 +1,13 @@
+- links_category: technical
+  has_thumbnail: true
+  list:
+      - name: shiyuda试验田
+        link: https://shiquda.link/
+        description: Read with Wonder, Think with Nonsense, Create with Fun.
+        avatar: https://pic1.imgdb.cn/item/685016b658cb8da5c85145a2.png
+        thumbnail: https://pic1.imgdb.cn/item/685016b658cb8da5c85145a2.png
+      - name: lurk
+        link: https://633399.xyz/
+        description: 风吹哪页读哪页
+        avatar: https://633399.xyz/upload/favicon.svg
+        thumbnail: https://633399.xyz/upload/favicon.svg
