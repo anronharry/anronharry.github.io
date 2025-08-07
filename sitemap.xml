@@ -88,6 +88,13 @@
 
   
   <url>
+    <loc>http://anronharry.github.io/categories/%E8%B3%87%E6%BA%90/</loc>
+    <lastmod>2025-08-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>http://anronharry.github.io/categories/%E8%BB%9F%E4%BB%B6/</loc>
     <lastmod>2025-08-07</lastmod>
     <changefreq>weekly</changefreq>
@@ -96,13 +103,6 @@
   
   <url>
     <loc>http://anronharry.github.io/categories/%E5%B7%A5%E5%85%B7%E9%9B%86/</loc>
-    <lastmod>2025-08-07</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://anronharry.github.io/categories/%E8%B3%87%E6%BA%90/</loc>
     <lastmod>2025-08-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
