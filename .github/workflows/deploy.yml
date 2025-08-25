@@ -1,0 +1,51 @@
+name: 博客自动构建部署
+
+on:
+  push:
+    branches: [ main ]  # 如果你的主分支是 master，改为 master
+  workflow_dispatch:    # 允许手动触发
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: 📥 检出代码
+      uses: actions/checkout@v4
+      with:
+        submodules: true
+        fetch-depth: 0
+        
+    - name: 📦 设置 Node.js 环境
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+        
+    - name: 🔧 安装依赖
+      run: |
+        npm install
+        npm install -g hexo-cli
+        
+    - name: ⚡ 安装性能优化插件
+      run: |
+        npm install hexo-html-minifier --save-dev
+        npm install hexo-clean-css --save-dev
+        npm install hexo-uglify --save-dev
+        npm install hexo-generator-sitemap --save-dev
+        npm install hexo-generator-robotstxt --save-dev
+        
+    - name: 🚀 清理并生成静态文件
+      run: |
+        hexo clean
+        NODE_ENV=production hexo generate
+        
+    - name: 🌐 部署到 GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./public
+        force_orphan: true
+        user_name: 'github-actions[bot]'
+        user_email: 'github-actions[bot]@users.noreply.github.com'
+        commit_message: '🚀 Deploy blog via GitHub Actions'
