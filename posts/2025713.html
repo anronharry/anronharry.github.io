@@ -230,7 +230,377 @@ document.addEventListener('DOMContentLoaded', function() {
     document.body.style.opacity = '1';
   }, 100);
 });
-</script> 
+</script>
+
+                
+    
+            
+                
+                    <!-- Twikoo评论系统美化样式 -->
+<style>
+/* Twikoo评论区域美化 */
+.twikoo {
+  margin-top: 2rem;
+  padding: 2rem;
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  border: 1px solid rgba(255,255,255,0.3);
+}
+
+/* 评论标题美化 */
+.twikoo .twikoo-comment-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #475569;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+.twikoo .twikoo-comment-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(45deg, #93c5fd, #a78bfa);
+  border-radius: 2px;
+}
+
+/* 评论输入框美化 */
+.twikoo .twikoo-input {
+  background: rgba(255,255,255,0.95);
+  border: 2px solid rgba(147, 197, 253, 0.3);
+  border-radius: 15px;
+  padding: 1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+}
+
+.twikoo .twikoo-input:focus {
+  border-color: #93c5fd;
+  box-shadow: 0 0 20px rgba(147, 197, 253, 0.25);
+  transform: translateY(-2px);
+}
+
+/* 评论按钮美化 */
+.twikoo .twikoo-btn {
+  background: linear-gradient(45deg, #93c5fd, #a78bfa);
+  border: none;
+  border-radius: 25px;
+  color: white;
+  padding: 0.8rem 2rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(147, 197, 253, 0.3);
+}
+
+.twikoo .twikoo-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(147, 197, 253, 0.4);
+}
+
+/* 评论列表美化 */
+.twikoo .twikoo-comment-list {
+  margin-top: 2rem;
+}
+
+.twikoo .twikoo-comment-item {
+  background: rgba(255,255,255,0.9);
+  border-radius: 15px;
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+  border-left: 4px solid #93c5fd;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+}
+
+.twikoo .twikoo-comment-item:hover {
+  transform: translateX(5px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+}
+
+/* 评论头像美化 */
+.twikoo .twikoo-avatar {
+  border-radius: 50%;
+  border: 3px solid #93c5fd;
+  box-shadow: 0 4px 15px rgba(147, 197, 253, 0.25);
+  transition: all 0.3s ease;
+}
+
+.twikoo .twikoo-avatar:hover {
+  transform: scale(1.1);
+  border-color: #a78bfa;
+}
+
+/* 评论内容美化 */
+.twikoo .twikoo-content {
+  color: #475569;
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+/* 评论时间美化 */
+.twikoo .twikoo-time {
+  color: #94a3b8;
+  font-size: 0.85rem;
+  font-style: italic;
+}
+
+/* 评论回复按钮美化 */
+.twikoo .twikoo-reply-btn {
+  background: linear-gradient(45deg, #b3d9ff, #7dd3fc);
+  border: none;
+  border-radius: 20px;
+  color: white;
+  padding: 0.5rem 1.5rem;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 3px 10px rgba(179, 217, 255, 0.3);
+}
+
+.twikoo .twikoo-reply-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(179, 217, 255, 0.4);
+}
+
+/* 评论分页美化 */
+.twikoo .twikoo-pagination {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.twikoo .twikoo-pagination a {
+  background: rgba(255,255,255,0.95);
+  border: 2px solid rgba(147, 197, 253, 0.3);
+  border-radius: 10px;
+  padding: 0.5rem 1rem;
+  margin: 0 0.3rem;
+  color: #93c5fd;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+
+.twikoo .twikoo-pagination a:hover,
+.twikoo .twikoo-pagination a.active {
+  background: #93c5fd;
+  color: white;
+  border-color: #93c5fd;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(147, 197, 253, 0.3);
+}
+
+/* 评论加载动画 */
+.twikoo .twikoo-loading {
+  text-align: center;
+  padding: 2rem;
+  color: #93c5fd;
+  font-size: 1.1rem;
+}
+
+.twikoo .twikoo-loading::before {
+  content: '💬';
+  display: block;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  animation: bounce 1s infinite;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .twikoo {
+    padding: 1rem;
+    margin-top: 1rem;
+  }
+  
+  .twikoo .twikoo-comment-title {
+    font-size: 1.3rem;
+  }
+  
+  .twikoo .twikoo-input {
+    padding: 0.8rem;
+  }
+  
+  .twikoo .twikoo-btn {
+    padding: 0.7rem 1.5rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* 页脚文本分段式边框样式 */
+.footer-text {
+  position: relative;
+  display: inline-block;
+  color: #1a2b5b;
+  font-weight: 600;
+  padding: 0.2rem 1rem;
+  background: transparent;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+/* 使用伪元素创建分段式边框 */
+.footer-text::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 20px;
+  height: 100%;
+  border: 2px solid #1a2b5b;
+  border-right: none;
+  border-radius: 25px 0 0 25px;
+}
+
+.footer-text::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 20px;
+  height: 100%;
+  border: 2px solid #1a2b5b;
+  border-left: none;
+  border-radius: 0 25px 25px 0;
+}
+
+/* 顶部水平线段 - 左侧 */
+.footer-text .top-line-left {
+  position: absolute;
+  left: 20px;
+  top: 0;
+  width: 30px;
+  height: 2px;
+  background: #1a2b5b;
+}
+
+/* 顶部水平线段 - 右侧 */
+.footer-text .top-line-right {
+  position: absolute;
+  right: 20px;
+  top: 0;
+  width: 30px;
+  height: 2px;
+  background: #1a2b5b;
+}
+
+/* 底部水平线段 - 左侧 */
+.footer-text .bottom-line-left {
+  position: absolute;
+  left: 20px;
+  bottom: 0;
+  width: 30px;
+  height: 2px;
+  background: #1a2b5b;
+}
+
+/* 底部水平线段 - 右侧 */
+.footer-text .bottom-line-right {
+  position: absolute;
+  right: 20px;
+  bottom: 0;
+  width: 30px;
+  height: 2px;
+  background: #1a2b5b;
+}
+
+/* 移除悬停效果，保持静态显示 */
+
+/* 页脚文本响应式设计 */
+@media (max-width: 768px) {
+  .footer-text {
+    padding: 0.15rem 0.8rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* 页面加载时间样式 - 与访问人数信息保持一致 */
+.page-load-time {
+  text-align: center;
+  color: #666;
+  font-size: 0.9rem;
+  margin-top: 0.3rem;
+  padding: 0.2rem 0;
+  font-family: inherit;
+  background: transparent;
+  border: none;
+  line-height: 1.4;
+}
+</style>
+
+                
+    
+            
+                
+                    <!-- Twikoo评论系统交互增强 -->
+<script data-swup-reload-script>
+document.addEventListener('DOMContentLoaded', function() {
+  // 等待Twikoo加载完成
+  const checkTwikoo = setInterval(() => {
+    if (document.querySelector('.twikoo')) {
+      clearInterval(checkTwikoo);
+      enhanceTwikoo();
+    }
+  }, 100);
+  
+  function enhanceTwikoo() {
+               // 添加评论数量显示
+     const commentTitle = document.querySelector('.twikoo-comment-title');
+     if (commentTitle) {
+       const commentCount = document.querySelectorAll('.twikoo-comment-item').length;
+       if (commentCount > 0) {
+         commentTitle.innerHTML += ` <span style="color: #93c5fd; font-size: 0.9rem;">(${commentCount})</span>`;
+       }
+     }
+    
+    // 添加评论输入框焦点效果
+    const inputs = document.querySelectorAll('.twikoo-input');
+    inputs.forEach(input => {
+      input.addEventListener('focus', function() {
+        this.parentElement.style.transform = 'scale(1.02)';
+      });
+      
+      input.addEventListener('blur', function() {
+        this.parentElement.style.transform = 'scale(1)';
+      });
+    });
+    
+    // 添加评论提交成功提示
+    const submitBtn = document.querySelector('.twikoo-btn');
+    if (submitBtn) {
+      submitBtn.addEventListener('click', function() {
+        setTimeout(() => {
+          if (this.textContent.includes('发送')) {
+            this.innerHTML = '<i class="fa fa-check"></i> 发送成功';
+            this.style.background = 'linear-gradient(45deg, #00b894, #00cec9)';
+            setTimeout(() => {
+              this.innerHTML = '发送';
+              this.style.background = 'linear-gradient(45deg, #667eea, #764ba2)';
+            }, 2000);
+          }
+        }, 1000);
+      });
+    }
+  }
+});
+</script>
 
                 
     
@@ -265,7 +635,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     <script id="hexo-configurations">
     window.config = {"hostname":"anronharry.github.io","root":"/","language":"zh-CN","path":"search.xml"};
-    window.theme = {"articles":{"style":{"font_size":"16px","line_height":1.5,"image_border_radius":"12px","image_alignment":"center","image_caption":false,"link_icon":true,"delete_mask":false,"title_alignment":"left","headings_top_spacing":{"h1":"3.2rem","h2":"2.4rem","h3":"1.9rem","h4":"1.6rem","h5":"1.4rem","h6":"1.3rem"}},"word_count":{"enable":true,"count":true,"min2read":true},"author_label":{"enable":true,"auto":false,"list":["全性存真"]},"code_block":{"copy":true,"style":"mac","highlight_theme":{"light":"atom-one-light","dark":"atom-one-light"},"font":{"enable":false,"family":null,"url":null}},"toc":{"enable":true,"max_depth":3,"number":false,"expand":true,"init_open":true},"copyright":{"enable":true,"default":"cc_by_nc_sa"},"lazyload":true,"pangu_js":false,"recommendation":{"enable":false,"title":"推荐阅读","limit":3,"mobile_limit":2,"placeholder":"/images/wallhaven-wqery6-light.webp","skip_dirs":[]}},"colors":{"primary":"#ff002e","secondary":null,"default_mode":"light"},"global":{"fonts":{"chinese":{"enable":true,"family":"Ma Shan Zheng","url":"https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap"},"english":{"enable":true,"family":"Righteous","url":"https://fonts.googleapis.com/css2?family=Righteous&display=swap"},"title":{"enable":true,"family":"Righteous","url":"https://fonts.googleapis.com/css2?family=Righteous&display=swap"}},"content_max_width":"1000px","sidebar_width":"240px","hover":{"shadow":true,"scale":true},"scroll_progress":{"bar":true,"percentage":true},"website_counter":{"url":"https://vercount.one/js","enable":true,"site_pv":true,"site_uv":true,"post_pv":true},"single_page":true,"preloader":{"enable":true,"custom_message":"Ron~ ~"},"side_tools":{"gear_rotation":true,"auto_expand":false},"open_graph":{"enable":true,"image":"/images/redefine-og.webp","description":"Hexo Theme Redefine, Redefine Your Hexo Journey."},"google_analytics":{"enable":true,"id":"G-HDKJFW7046"}},"home_banner":{"enable":true,"style":"fixed","image":{"light":"https://image.cakee.eu.org/pexels-ahmetyuksek-30882618.jpg","dark":"https://pic1.imgdb.cn/item/67c45691d0e0a243d40a275a.jpg"},"title":"Ron Blog","subtitle":{"text":["探索技术的边界","分享生活的美好","记录成长的足迹"],"hitokoto":{"enable":true,"show_author":true,"api":"https://v1.hitokoto.cn"},"typing_speed":80,"backing_speed":60,"starting_delay":500,"backing_delay":1500,"loop":true,"smart_backspace":true},"text_color":{"light":"#ffffff","dark":"#ffffff"},"text_style":{"title_size":"6rem","subtitle_size":"2.7rem","line_height":1.2},"custom_font":{"enable":true,"family":"Righteous","url":"https://fonts.googleapis.com/css2?family=Righteous&display=swap"},"social_links":{"enable":true,"style":"default","links":{"github":"https://github.com/","instagram":null,"zhihu":null,"twitter":null,"email":null},"qrs":{"weixin":null}}},"plugins":{"feed":{"enable":false},"aplayer":{"enable":true,"type":"mini","audios":[{"name":"半岛铁盒","artist":"周杰伦","url":"https://echeverra.cn/wp-content/uploads/2022/05/周杰伦-半岛铁盒.mp3","cover":"https://pic1.imgdb.cn/item/687bb7a058cb8da5c8c794a3.png","lrc":"https://dlink.host/1drv/aHR0cHM6Ly8xZHJ2Lm1zL3UvYy80MGEyNmE5ZTllZTYzMDQ4L0ViWmh6cWZnTlE1RGdnUGtyalZjSURzQjhnY2Jidnp0YjJ1YVRPbE5kTFVNMmc_ZT1hcktxVXg.lrc"},{"name":"ᐇ","artist":"Seto","url":"https://dlink.host/1drv/aHR0cHM6Ly8xZHJ2Lm1zL3UvYy80MGEyNmE5ZTllZTYzMDQ4L0VZclBMc2w3YVlKRWpfXzFyVmw1Yks0QkpYb1JZRGR6bV9lMElnaFNjTkM3RHc_ZT1KaWN2dEg.mp3","cover":"https://tuchuang.org.cn/imgs/2025/07/24/12dfc12d72e60985.jpg","lrc":"https://dlink.host/1drv/aHR0cHM6Ly8xZHJ2Lm1zL3UvYy80MGEyNmE5ZTllZTYzMDQ4L0VYQ2FxLWV0Qi1kQ3VwT2pxMUhiQ1JzQkdZYzZGNG54OHNxdnZJMC1OSzUwUXc_ZT1pb1I5NjE.lrc"},{"name":"当爱已成往事","artist":"张国荣","url":"https://image.cakee.eu.org/%E5%BC%A0%E5%9B%BD%E8%8D%A3%20-%20%E5%BD%93%E7%88%B1%E5%B7%B2%E6%88%90%E5%BE%80%E4%BA%8B.mp3","cover":"https://p2.music.126.net/5S903s30X7BZaSgJzqTgDw==/109951165291604535.jpg"}]},"mermaid":{"enable":false,"version":"11.4.1"}},"version":"2.8.5","navbar":{"auto_hide":true,"color":{"left":"#c4fe90","right":"#cffef6","transparency":65},"width":{"home":"1200px","pages":"1000px"},"links":{"Home":{"path":"/","icon":"fa-regular fa-house"},"links":{"path":"/link/","icon":"fa-regular fa-house"}},"search":{"enable":true,"preload":false}},"page_templates":{"friends_column":3,"tags_style":"cloud"},"home":{"sidebar":{"enable":true,"position":"right","first_item":"menu","announcement":null,"show_on_mobile":true,"links":null},"article_date_format":"auto","excerpt_length":200,"categories":{"enable":true,"limit":3},"tags":{"enable":true,"limit":3}},"footerStart":"2025/6/4 12:00:00"};
+    window.theme = {"articles":{"style":{"font_size":"16px","line_height":1.5,"image_border_radius":"12px","image_alignment":"center","image_caption":false,"link_icon":true,"delete_mask":false,"title_alignment":"left","headings_top_spacing":{"h1":"3.2rem","h2":"2.4rem","h3":"1.9rem","h4":"1.6rem","h5":"1.4rem","h6":"1.3rem"}},"word_count":{"enable":true,"count":true,"min2read":true},"author_label":{"enable":true,"auto":false,"list":["全性存真"]},"code_block":{"copy":true,"style":"mac","highlight_theme":{"light":"atom-one-light","dark":"atom-one-light"},"font":{"enable":false,"family":null,"url":null}},"toc":{"enable":true,"max_depth":3,"number":false,"expand":true,"init_open":true},"copyright":{"enable":true,"default":"cc_by_nc_sa"},"lazyload":true,"pangu_js":false,"recommendation":{"enable":false,"title":"推荐阅读","limit":3,"mobile_limit":2,"placeholder":"/images/wallhaven-wqery6-light.webp","skip_dirs":[]}},"colors":{"primary":"#ff002e","secondary":null,"default_mode":"light"},"global":{"fonts":{"chinese":{"enable":true,"family":"Ma Shan Zheng","url":"https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap"},"english":{"enable":true,"family":"Righteous","url":"https://fonts.googleapis.com/css2?family=Righteous&display=swap"},"title":{"enable":true,"family":"Righteous","url":"https://fonts.googleapis.com/css2?family=Righteous&display=swap"}},"content_max_width":"1000px","sidebar_width":"240px","hover":{"shadow":true,"scale":true},"scroll_progress":{"bar":true,"percentage":true},"website_counter":{"url":"https://vercount.one/js","enable":true,"site_pv":true,"site_uv":true,"post_pv":true},"single_page":true,"preloader":{"enable":true,"custom_message":"Ron~ ~"},"side_tools":{"gear_rotation":true,"auto_expand":false},"open_graph":{"enable":true,"image":"/images/redefine-og.webp","description":"Hexo Theme Redefine, Redefine Your Hexo Journey."},"google_analytics":{"enable":true,"id":"G-HDKJFW7046"}},"home_banner":{"enable":true,"style":"fixed","image":{"light":"https://image.cakee.eu.org/pexels-ahmetyuksek-30882618.jpg","dark":"https://pic1.imgdb.cn/item/67c45691d0e0a243d40a275a.jpg"},"title":"Ron Blog","subtitle":{"text":["探索技术的边界","分享生活的美好","记录成长的足迹"],"hitokoto":{"enable":true,"show_author":true,"api":"https://v1.hitokoto.cn"},"typing_speed":80,"backing_speed":60,"starting_delay":500,"backing_delay":1500,"loop":true,"smart_backspace":true},"text_color":{"light":"#ffffff","dark":"#ffffff"},"text_style":{"title_size":"6rem","subtitle_size":"2.7rem","line_height":1.2},"custom_font":{"enable":true,"family":"Righteous","url":"https://fonts.googleapis.com/css2?family=Righteous&display=swap"},"social_links":{"enable":true,"style":"default","links":{"github":"https://github.com/","instagram":null,"zhihu":null,"twitter":null,"email":null},"qrs":{"weixin":null}}},"plugins":{"feed":{"enable":false},"aplayer":{"enable":true,"type":"mini","audios":[{"name":"半岛铁盒","artist":"周杰伦","url":"https://echeverra.cn/wp-content/uploads/2022/05/周杰伦-半岛铁盒.mp3","cover":"https://pic1.imgdb.cn/item/687bb7a058cb8da5c8c794a3.png","lrc":"https://dlink.host/1drv/aHR0cHM6Ly8xZHJ2Lm1zL3UvYy80MGEyNmE5ZTllZTYzMDQ4L0ViWmh6cWZnTlE1RGdnUGtyalZjSURzQjhnY2Jidnp0YjJ1YVRPbE5kTFVNMmc_ZT1hcktxVXg.lrc"},{"name":"ᐇ","artist":"Seto","url":"https://dlink.host/1drv/aHR0cHM6Ly8xZHJ2Lm1zL3UvYy80MGEyNmE5ZTllZTYzMDQ4L0VZclBMc2w3YVlKRWpfXzFyVmw1Yks0QkpYb1JZRGR6bV9lMElnaFNjTkM3RHc_ZT1KaWN2dEg.mp3","cover":"https://tuchuang.org.cn/imgs/2025/07/24/12dfc12d72e60985.jpg","lrc":"https://dlink.host/1drv/aHR0cHM6Ly8xZHJ2Lm1zL3UvYy80MGEyNmE5ZTllZTYzMDQ4L0VYQ2FxLWV0Qi1kQ3VwT2pxMUhiQ1JzQkdZYzZGNG54OHNxdnZJMC1OSzUwUXc_ZT1pb1I5NjE.lrc"},{"name":"当爱已成往事","artist":"张国荣","url":"https://image.cakee.eu.org/%E5%BC%A0%E5%9B%BD%E8%8D%A3%20-%20%E5%BD%93%E7%88%B1%E5%B7%B2%E6%88%90%E5%BE%80%E4%BA%8B.mp3","cover":"https://p2.music.126.net/5S903s30X7BZaSgJzqTgDw==/109951165291604535.jpg"}]},"mermaid":{"enable":false,"version":"11.4.1"}},"version":"2.8.5","navbar":{"auto_hide":true,"color":{"left":"#c4fe90","right":"#cffef6","transparency":65},"width":{"home":"1200px","pages":"1000px"},"links":{"Home":{"path":"/","icon":"fa-regular fa-house"},"友链":{"path":"/link/","icon":"fa-regular fa-house"}},"search":{"enable":true,"preload":false}},"page_templates":{"friends_column":3,"tags_style":"cloud"},"home":{"sidebar":{"enable":true,"position":"right","first_item":"menu","announcement":null,"show_on_mobile":true,"links":null},"article_date_format":"auto","excerpt_length":200,"categories":{"enable":true,"limit":3},"tags":{"enable":true,"limit":3}},"footerStart":"2025/6/4 12:00:00"};
     window.lang_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"};
     window.data = {"masonry":false};
   </script>
@@ -493,7 +863,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                    href="/link/"
                                         >
                                     <i class="fa-regular fa-house fa-fw"></i>
-                                    链接
+                                    友链
                                     
                                 </a>
 
@@ -554,7 +924,7 @@ document.addEventListener('DOMContentLoaded', function() {
                            href="/link/"
                         >
                             <span>
-                                链接
+                                友链
                             </span>
                             
                                 <i class="fa-regular fa-house fa-sm fa-fw"></i>
@@ -857,7 +1227,7 @@ document.addEventListener('DOMContentLoaded', function() {
 			<footer class="footer mt-5 py-5 h-auto text-base text-third-text-color relative border-t-2 border-t-border-color">
     <div class="info-container py-3 text-center">
         
-            <div class="customize-info my-1">黑云翻墨未遮山，白雨跳珠乱入船。</div>
+            <div class="customize-info my-1"><span class="footer-text">黑云翻墨未遮山，白雨跳珠乱入船。<span class="top-line-left"></span><span class="top-line-right"></span><span class="bottom-line-left"></span><span class="bottom-line-right"></span></span></div>
         
         <div class="text-center">
             &copy;
@@ -926,6 +1296,82 @@ document.addEventListener('DOMContentLoaded', function() {
         
         
             
+                
+        
+                
+        
+                
+
+                    
+                        <!-- 页面加载速度检测 -->
+<script data-swup-reload-script>
+// 记录页面开始加载时间
+const startTime = performance.now();
+
+// 页面加载完成后立即计算并显示
+window.addEventListener('load', function() {
+  const loadTime = performance.now() - startTime;
+  const loadTimeSeconds = (loadTime / 1000).toFixed(3);
+  
+  // 创建页面加载时间显示元素
+  const loadTimeElement = document.createElement('div');
+  loadTimeElement.className = 'page-load-time';
+  loadTimeElement.innerHTML = `页面加载时间: ${loadTimeSeconds} 秒`;
+  
+  // 样式与页脚其他统计信息保持一致
+  loadTimeElement.style.cssText = `
+    text-align: center; 
+    color: #666; 
+    font-size: 0.9rem; 
+    margin-top: 0.3rem; 
+    padding: 0.2rem 0; 
+    font-family: inherit; 
+    background: transparent; 
+    border: none; 
+    line-height: 1.4;
+    opacity: 0.9;
+  `;
+  
+  // 直接插入到页脚
+  const footer = document.querySelector('footer') || document.querySelector('.footer');
+  if (footer) {
+    footer.appendChild(loadTimeElement);
+  }
+});
+
+// 备用方案：如果load事件没有触发，使用DOMContentLoaded
+document.addEventListener('DOMContentLoaded', function() {
+  setTimeout(function() {
+    if (!document.querySelector('.page-load-time')) {
+      const loadTimeElement = document.createElement('div');
+      loadTimeElement.className = 'page-load-time';
+      loadTimeElement.innerHTML = '页面加载时间: 已加载';
+      
+      // 样式与页脚其他统计信息保持一致
+      loadTimeElement.style.cssText = `
+        text-align: center; 
+        color: #666; 
+        font-size: 0.9rem; 
+        margin-top: 0.3rem; 
+        padding: 0.2rem 0; 
+        font-family: inherit; 
+        background: transparent; 
+        border: none; 
+        line-height: 1.4;
+        opacity: 0.9;
+      `;
+      
+      const footer = document.querySelector('footer') || document.querySelector('.footer');
+      if (footer) {
+        footer.appendChild(loadTimeElement);
+      }
+    }
+  }, 1000);
+});
+</script>
+
+                    
+        
         
     </div>  
 </footer>
