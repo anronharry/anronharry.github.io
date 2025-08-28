@@ -216,15 +216,29 @@ pre {
     
             
                 
-                    <!-- 添加页面加载动画 -->
+                    <!-- 添加页面加载动画 - 兼容 SWUP -->
 <script data-swup-reload-script>
+// 页面初始加载动画
 document.addEventListener('DOMContentLoaded', function() {
-  document.body.style.opacity = '0';
-  document.body.style.transition = 'opacity 0.3s ease';
-  setTimeout(() => {
-    document.body.style.opacity = '1';
-  }, 100);
+  if (!document.body.classList.contains('swup-transition')) {
+    document.body.style.opacity = '0';
+    document.body.style.transition = 'opacity 0.3s ease';
+    setTimeout(() => {
+      document.body.style.opacity = '1';
+    }, 100);
+  }
 });
+
+// 兼容 SWUP 单页应用
+if (typeof swup !== 'undefined') {
+  swup.hooks.on('page:view', function() {
+    // 页面切换完成后的淡入效果
+    document.body.style.opacity = '0';
+    setTimeout(() => {
+      document.body.style.opacity = '1';
+    }, 50);
+  });
+}
 </script>
 
                 
@@ -445,10 +459,11 @@ document.addEventListener('DOMContentLoaded', function() {
   display: inline-block;
   color: #1a2b5b;
   font-weight: 600;
-  padding: 0.2rem 1rem;
+  padding: 0.15rem 0.8rem;
   background: transparent;
   transition: all 0.3s ease;
   cursor: pointer;
+  margin: 0.2rem 0;
 }
 
 /* 使用伪元素创建分段式边框 */
@@ -531,12 +546,27 @@ document.addEventListener('DOMContentLoaded', function() {
   text-align: center;
   color: #666;
   font-size: 0.9rem;
-  margin-top: 0.3rem;
-  padding: 0.2rem 0;
+  margin-top: 0.1rem;
+  margin-bottom: 0.1rem;
+  padding: 0.1rem 0;
   font-family: inherit;
   background: transparent;
   border: none;
-  line-height: 1.4;
+  line-height: 1.2;
+}
+
+/* 优化页脚整体间距 */
+footer {
+  padding-bottom: 1rem;
+}
+
+/* 减少页脚各元素之间的间距 */
+footer > div {
+  margin-bottom: 0.3rem;
+}
+
+footer > div:last-child {
+  margin-bottom: 0;
 }
 </style>
 
@@ -1099,67 +1129,70 @@ document.addEventListener('DOMContentLoaded', function() {
                 
 
                     
-                        <!-- 页面加载速度检测 -->
+                        <!-- 页面加载速度检测 - 兼容 SWUP -->
 <script data-swup-reload-script>
 // 记录页面开始加载时间
 const startTime = performance.now();
 
-// 页面加载完成后立即计算并显示
-window.addEventListener('load', function() {
+// 创建唯一的页面加载时间显示元素
+function createLoadTimeElement() {
+  // 先移除已存在的加载时间元素，避免重复
+  const existingElement = document.querySelector('.page-load-time');
+  if (existingElement) {
+    existingElement.remove();
+  }
+  
   const loadTime = performance.now() - startTime;
   const loadTimeSeconds = (loadTime / 1000).toFixed(3);
   
-  // 创建页面加载时间显示元素
   const loadTimeElement = document.createElement('div');
   loadTimeElement.className = 'page-load-time';
   loadTimeElement.innerHTML = `页面加载时间: ${loadTimeSeconds} 秒`;
   
-  // 样式与页脚其他统计信息保持一致
   loadTimeElement.style.cssText = `
     text-align: center; 
     color: #666; 
     font-size: 0.9rem; 
-    margin-top: 0.3rem; 
-    padding: 0.2rem 0; 
+    margin-top: 0.1rem; 
+    margin-bottom: 0.2rem; 
+    padding: 0.1rem 0; 
     font-family: inherit; 
     background: transparent; 
     border: none; 
-    line-height: 1.4;
+    line-height: 1.2;
     opacity: 0.9;
   `;
   
-  // 直接插入到页脚
+  return loadTimeElement;
+}
+
+// 页面加载完成后显示加载时间
+window.addEventListener('load', function() {
   const footer = document.querySelector('footer') || document.querySelector('.footer');
   if (footer) {
-    footer.appendChild(loadTimeElement);
+    footer.appendChild(createLoadTimeElement());
   }
 });
 
-// 备用方案：如果load事件没有触发，使用DOMContentLoaded
+// 兼容 SWUP 单页应用
+if (typeof swup !== 'undefined') {
+  swup.hooks.on('page:view', function() {
+    setTimeout(() => {
+      const footer = document.querySelector('footer') || document.querySelector('.footer');
+      if (footer && !document.querySelector('.page-load-time')) {
+        footer.appendChild(createLoadTimeElement());
+      }
+    }, 100);
+  });
+}
+
+// 备用方案：DOMContentLoaded
 document.addEventListener('DOMContentLoaded', function() {
   setTimeout(function() {
     if (!document.querySelector('.page-load-time')) {
-      const loadTimeElement = document.createElement('div');
-      loadTimeElement.className = 'page-load-time';
-      loadTimeElement.innerHTML = '页面加载时间: 已加载';
-      
-      // 样式与页脚其他统计信息保持一致
-      loadTimeElement.style.cssText = `
-        text-align: center; 
-        color: #666; 
-        font-size: 0.9rem; 
-        margin-top: 0.3rem; 
-        padding: 0.2rem 0; 
-        font-family: inherit; 
-        background: transparent; 
-        border: none; 
-        line-height: 1.4;
-        opacity: 0.9;
-      `;
-      
       const footer = document.querySelector('footer') || document.querySelector('.footer');
       if (footer) {
-        footer.appendChild(loadTimeElement);
+        footer.appendChild(createLoadTimeElement());
       }
     }
   }, 1000);
