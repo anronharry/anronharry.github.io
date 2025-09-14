@@ -140,7 +140,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://anronharry.github.io/images/redefine-og.webp">
 <meta property="article:published_time" content="2025-06-14T16:00:00.000Z">
-<meta property="article:modified_time" content="2025-09-12T09:55:21.296Z">
+<meta property="article:modified_time" content="2025-09-13T06:23:20.388Z">
 <meta property="article:author" content="Ron">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://anronharry.github.io/images/redefine-og.webp">
@@ -989,7 +989,7 @@ document.addEventListener('DOMContentLoaded', function() {
         <div class="label text-third-text-color text-sm">分类</div>
     </a>
     <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/archives">
-        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">3</div>
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">4</div>
         <div class="label text-third-text-color text-sm">文章</div>
     </a>
 </div>
@@ -1044,8 +1044,8 @@ document.addEventListener('DOMContentLoaded', function() {
     
         <span class="article-date article-meta-item">
             <i class="fa-regular fa-wrench"></i>&nbsp;
-            <span class="desktop">2025-09-12 17:55:21</span>
-            <span class="mobile">2025-09-12 17:55:21</span>
+            <span class="desktop">2025-09-13 14:23:20</span>
+            <span class="mobile">2025-09-13 14:23:20</span>
             <span class="hover-info">更新</span>
         </span>
     
@@ -1092,6 +1092,35 @@ document.addEventListener('DOMContentLoaded', function() {
 		</div>
 		
 
+		
+		<div class="article-expire mt-4 mx-2 sm:mx-6 md:mx-8 note p-4 rounded-lg red icon hidden" id="expiration-container">
+			<i class="expire-icon fa-solid fa-timer mr-0.5 text-red-600 dark:text-red-400"></i>
+			<span class="expire-label text-red-600 dark:text-red-400 " id="expiration-date">这篇文章最后更新于 some 天前，内容可能已经过时。</span>
+		</div>
+
+		<script data-swup-reload-script>
+			function updateExpirationDate() {
+				try {
+					const expiredDate = new Date("Thu Jul 31 2025 23:59:59 GMT+0800 (中国标准时间)");
+					const updatedDate = new Date("Sat Sep 13 2025 14:23:20 GMT+0800");
+					const now = new Date();
+					const expirationValue = document.getElementById("expiration-date");
+					const expirationContainer = document.getElementById("expiration-container");
+					let daysAgo = Math.floor((now - updatedDate) / (1000 * 60 * 60 * 24));
+					if (expiredDate < now) {
+						expirationContainer.classList.remove("hidden");
+						// console.log(daysAgo)
+						expirationValue.innerHTML = expirationValue.innerHTML.replace("some", daysAgo);
+					}
+				} catch (e) {}
+			}
+			document.addEventListener("DOMContentLoaded", function() {
+				updateExpirationDate();
+			});
+			try {
+				swup.hooks.on("page:view", updateExpirationDate)
+			} catch (e) {}
+		</script>
 		
 
 
@@ -1170,7 +1199,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
             <li>
                 <strong>更新于
-                    :</strong> 2025-09-12 17:55:21
+                    :</strong> 2025-09-13 14:23:20
             </li>
         
         <li>
@@ -1308,11 +1337,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 
                 <p class="post-count space-x-0.5">
                     <span>
-                        共撰写了 3 篇文章
+                        共撰写了 4 篇文章
                     </span>
                     
                         <span>
-                            共 1.7k 字
+                            共 3.4k 字
                         </span>
                     
                 </p>
