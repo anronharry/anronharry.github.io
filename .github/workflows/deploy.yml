@@ -30,10 +30,6 @@ jobs:
         npm ci
         npm install -g hexo-cli
 
-    - name: ⚡ 安装性能优化插件
-      run: |
-        npm install --no-save hexo-html-minifier hexo-clean-css hexo-uglify hexo-generator-robotstxt
-
     - name: 🚀 清理并生成静态文件
       run: |
         hexo clean
