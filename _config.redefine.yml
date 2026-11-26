@@ -37,7 +37,7 @@ defaults:
 # Docs: https://redefine-docs.ohevan.com/basic/colors
 colors:
   #Primary color
-  primary: "#ff002e"
+  primary: "#2563eb"
   # Secondary color (TBD)
   secondary:
   # Default theme mode initial value (will be overwritten by prefer-color-scheme)
@@ -52,19 +52,19 @@ global:
   fonts:
     # Chinese fonts
     chinese: 
-      enable: true # Whether to enable custom chinese fonts
-      family: Ma Shan Zheng # Font family
-      url: https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap # Font URL to CSS file
+      enable: false # Whether to enable custom chinese fonts
+      family: Noto Sans SC # Font family
+      url: https://fonts.loli.net/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap # Font URL to CSS file
     # English fonts
     english: 
-      enable: true # Whether to enable custom english fonts
+      enable: false # Whether to enable custom english fonts
       family: Righteous # Font family
-      url: https://fonts.googleapis.com/css2?family=Righteous&display=swap # Font URL to CSS file
+      url: https://fonts.loli.net/css2?family=Righteous&display=swap # Font URL to CSS file
     # Custom title fonts (navbar, sidebar)
     title:
-      enable: true # Whether to enable custom title fonts
+      enable: false # Whether to enable custom title fonts
       family: Righteous # Font family
-      url: https://fonts.googleapis.com/css2?family=Righteous&display=swap # Font URL to CSS file
+      url: https://fonts.loli.net/css2?family=Righteous&display=swap # Font URL to CSS file
   # Content max width
   content_max_width: 1000px
   # Sidebar width
@@ -88,16 +88,16 @@ global:
   single_page: true
   # Whether to enable Preloader.
   preloader:
-    enable: true
+    enable: false
     custom_message: Ron  # Custom message. If empty, the site title will be displayed
   # Whether to enable open graph
   open_graph:
     enable: true
     image: /images/redefine-og.webp  # default og:image
-    description: Hexo Theme Redefine, Redefine Your Hexo Journey.
+    description: Ron 的个人博客，记录技术折腾与生活随笔。
   # Google Analytics
   google_analytics:
-    enable: true # Whether to enable Google Analytics
+    enable: false # Whether to enable Google Analytics
     id: G-HDKJFW7046 # Google Analytics Measurement ID
 # SITE CUSTOMIZATION <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< end
     
@@ -131,7 +131,7 @@ home_banner:
   title: Ron Blog
   # Home banner subtitle
   subtitle:
-    text: [This is the first message", "This is the second message", "etc"] # subtitle text, array
+    text: ["黑云翻墨未遮山，白雨跳珠乱入船。"] # subtitle text, array
     hitokoto:  # 一言配置
       enable: true # Whether to enable hitokoto
       show_author: true # Whether to show author
@@ -149,9 +149,9 @@ home_banner:
   # Specific style of the text
   text_style: 
     # Title font size
-    title_size: 6rem
+    title_size: 3.5rem
     # Subtitle font size
-    subtitle_size: 2.7rem
+    subtitle_size: 1.6rem
     # Line height between title and subtitle
     line_height: 1.2
   # Home banner custom font
@@ -161,7 +161,7 @@ home_banner:
     # Font family
     family: Righteous
     # URL to font CSS file
-    url: https://fonts.googleapis.com/css2?family=Righteous&display=swap
+    url: https://fonts.loli.net/css2?family=Righteous&display=swap
   # Home banner social links
   social_links:
     # Whether to enable
@@ -170,7 +170,7 @@ home_banner:
     style: default # default, reverse, center
     # Social links
     links:
-      github: https://github.com/
+      github: https://github.com/anronharry
       instagram: # your Instagram URL
       zhihu:  # your ZhiHu URL
       twitter:  # your twitter URL
@@ -190,9 +190,9 @@ navbar:
   auto_hide: true
   # Navbar background color
   color:
-    left: "#c4fe90" #left side 
-    right: "#cffef6"  #right side
-    transparency: 65 #percent (10-99)
+    left: "#ffffff" #left side 
+    right: "#ffffff"  #right side
+    transparency: 80 #percent (10-99)
   # Navbar width (usually no need to modify)
   width:
     home: 1200px #home page
@@ -202,10 +202,21 @@ navbar:
     Home: 
       path: /
       icon: fa-regular fa-house # can be empty
-    
-    links:
+    Archives:
+      path: /archives/
+      icon: fa-regular fa-archive
+    Categories:
+      path: /categories/
+      icon: fa-regular fa-folder
+    Tags:
+      path: /tags/
+      icon: fa-regular fa-tags
+    Links:
       path: /link/
-      icon: fa-regular fa-house
+      icon: fa-regular fa-link
+    About:
+      path: /about/
+      icon: fa-regular fa-user
     # Archives: 
     #   path: /archives 
     #   icon: fa-regular fa-archive # can be empty
@@ -231,7 +242,7 @@ navbar:
     # Whether to enable
     enable: true
     # Preload search data when the page loads
-    preload: true
+    preload: false
 # NAVIGATION BAR <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< end
 
 
@@ -243,7 +254,7 @@ home:
     enable: true # Whether to enable sidebar
     position: right # Sidebar position. left, right
     first_item: menu # First item in sidebar. menu, info
-    announcement: # Announcement text
+    announcement: 代码、折腾与生活随笔。 # Announcement text
     show_on_mobile: true # Whether to show sidebar navigation on mobile sheet menu
     links:
       # Archives: 
@@ -326,7 +337,7 @@ articles:
   # Whether to enable lazyload for images
   lazyload: true
   # Pangu.js (automatically add space between Chinese and English). See https://github.com/vinta/pangu.js
-  pangu_js: false
+  pangu_js: true
   # Article recommendation. Requires nodejieba (npm install nodejieba). Transplanted from hexo-theme-volantis.
   recommendation:
     # Whether to enable article recommendation
@@ -348,9 +359,9 @@ articles:
 # Docs: https://redefine-docs.ohevan.com/posts/comment
 comment:
   # Whether to enable comment
-  enable: true
+  enable: false
   # Comment system
-  system: twikoo # waline, gitalk, twikoo, giscus
+  system: giscus # waline, gitalk, twikoo, giscus
   # System configuration
   config:
     # Waline comment system. See https://waline.js.org/
@@ -375,16 +386,16 @@ comment:
       region:  # Twikoo region. can be empty
     # Giscus comment system. See https://giscus.app/
     giscus:
-      repo: # Github repository name e.g. EvanNotFound/hexo-theme-redefine
-      repo_id: # Github repository id
-      category: # Github discussion category
+      repo: anronharry/anronharry.github.io # Github repository name e.g. EvanNotFound/hexo-theme-redefine
+      repo_id: R_kgDOOSIlQg # Github repository id
+      category: Announcements # Github discussion category
       category_id: # Github discussion category id
       mapping: pathname # Which value to use as the unique identifier for the page. e.g. pathname, url, title, og:title. DO NOT USE og:title WITH PJAX ENABLED since pjax will not update og:title when the page changes
       strict: 0 # Whether to enable strict mode. e.g. 0, 1
       reactions_enabled: 1 # Whether to enable reactions. e.g. 0, 1
       emit_metadata: 0 # Whether to emit metadata. e.g. 0, 1
-      lang: en # Giscus language. e.g. en, zh-CN, zh-TW
-      input_position: bottom # Place the comment box above/below the comments. e.g. top, bottom
+      lang: zh-CN # Giscus language. e.g. en, zh-CN, zh-TW
+      input_position: top # Place the comment box above/below the comments. e.g. top, bottom
       loading: lazy # Load the comments lazily
 # COMMENT <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< end
 
@@ -395,7 +406,7 @@ footer:
   # Show website running time
   runtime: true # show website running time or not
   # Icon in footer, write fontawesome icon code here
-  icon: '<i class="fa-solid fa-heart fa-beat" style="--fa-animation-duration: 0.5s; color: #5dd539"></i>'
+  icon: '<i class="fa-solid fa-heart fa-beat" style="--fa-animation-duration: 0.5s; color: #ff002e"></i>'
   # The start time of the website, format: YYYY/MM/DD HH:mm:ss
   start: 2025/6/4 12:00:00
   # Site statistics
@@ -432,10 +443,10 @@ inject:
 plugins:
   # RSS feed. Requires hexo-generator-feed (npm i hexo-generator-feed). See https://github.com/hexojs/hexo-generator-feed
   feed:
-    enable: false # Whether to enable
+    enable: true # Whether to enable
   # Aplayer. See https://github.com/DIYgod/APlayer
   aplayer:
-    enable: true # Whether to enable
+    enable: false # Whether to enable
     type: fixed # fixed, mini
     audios:
       - name: 半岛铁盒 # audio name
@@ -475,7 +486,7 @@ page_templates:
 # Docs: https://redefine-docs.ohevan.com/cdn
 cdn:
   # Whether to enable CDN
-  enable: false
+  enable: true
   # CDN Provider
   provider: npmmirror # npmmirror, zstatic, cdnjs, jsdelivr, unpkg, custom
   # Custom CDN URL

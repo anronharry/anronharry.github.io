@@ -3,17 +3,17 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Ron
-subtitle: '~'
-description: ''
+title: Ron Blog
+subtitle: 'fantasy'
+description: 'Ron 的个人博客，记录技术折腾与生活随笔。'
 keywords:
 author: Ron
 language: zh-CN
-timezone: ''
+timezone: 'Asia/Shanghai'
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
-url: http://anronharry.github.io
+url: https://cakee.eu.org
 permalink: posts/:abbrlink.html
 abbrlink:
   alg: crc32 

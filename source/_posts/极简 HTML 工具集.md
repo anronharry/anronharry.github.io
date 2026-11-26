@@ -7,10 +7,8 @@ tags:
 categories: 工具集
 abbrlink: 2025713
 date: 2025-07-13 14:00:00
-cover: "https://tuchuang.org.cn/imgs/2025/07/24/51ae21bded75aa8d.jpg"
+cover: "/images/wallhaven-wqery6-light.webp"
 ---
-
-# 极简 HTML 工具集
 
 此工具基于简单 HTML 文件构建，并部署于 Cloudflare Pages。
 
